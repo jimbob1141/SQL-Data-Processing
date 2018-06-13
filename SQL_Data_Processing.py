@@ -38,7 +38,7 @@ def filter_list(df):
 # *args used to unpack the tuple passed from filterList containing the sqlgen generator object and the length of the list.
 # sql_gen is used to retrieve the data to import
 # no_of_records is used as the number of rows that are being imported
-def sqlUpdate(*args):
+def sql_update(*args):
     sql_gen, no_of_records = args[0][0], args[0][1]
     for total_records in range(no_of_records):
         with engine.connect() as con:
@@ -59,4 +59,4 @@ engine = create_engine('mysql://root:James123@localhost/sakila')
 
 # Calling the sqlUpdate function with the filterList function that takes datasetImport it's argument
 #This imports the dataset, filters the dataset and finally inserts the results into sql
-sqlUpdate(filter_list(dataset_import()))
+sql_update(filter_list(dataset_import()))

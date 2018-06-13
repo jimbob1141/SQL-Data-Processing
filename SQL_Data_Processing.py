@@ -30,7 +30,7 @@ def filter_list(df):
             value.first_name.startswith('O') or
             value.first_name.startswith('U')):
                 filter_list.append([value.actor_id, value.first_name, value.last_name, value.last_update])
-        l_filtermore = [x for x in filter_list if x[2].startswith('M') or x[2].startswith('G')]
+    l_filtermore = [x for x in filter_list if x[2].startswith('M') or x[2].startswith('G')]
     sql_gen = (repr(column) for lists in l_filtermore for column in lists)
     return sql_gen, len(l_filtermore)
     
